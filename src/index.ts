@@ -31,11 +31,10 @@ const getFilmById = async (id: number): Promise<IFilm> => {
   }
 };
 
-const swapi =  {
+const swapi = {
   getFilmById,
   getFilms,
   getResources,
 };
-
 
 export default swapi;
