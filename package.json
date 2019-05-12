@@ -6,14 +6,14 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --config jestconfig.json",
     "lint": "tslint -p tsconfig.json",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "prepare" : "npm run build",
-    "prepublishOnly" : "npm test && npm run lint",
-    "preversion" : "npm run lint",
-    "version" : "npm run format && git add -A src",
-    "postversion" : "git push && git push --tags"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "files": [
     "lib/**/*"
@@ -22,7 +22,13 @@
     "type": "git",
     "url": "git+https://github.com/CFourPO/ts-swapi.git"
   },
-  "keywords": ["swapi","ts","typescript","wrapper","starwars"],
+  "keywords": [
+    "swapi",
+    "ts",
+    "typescript",
+    "wrapper",
+    "starwars"
+  ],
   "author": "Chris Pomerville <cfourpo.dev@gmail.com> (http://chrispomerville.com)",
   "license": "ISC",
   "bugs": {
@@ -30,7 +36,10 @@
   },
   "homepage": "https://github.com/CFourPO/ts-swapi#readme",
   "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "jest": "^24.8.0",
     "prettier": "^1.17.0",
+    "ts-jest": "^24.0.2",
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.4.5"
