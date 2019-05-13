@@ -1,12 +1,3 @@
-export interface IResourceSchema {
-  films: string;
-  people: string;
-  planets: string;
-  species: string;
-  starships: string;
-  vehicles: string;
-}
-
 export interface IFilm {
   title: string; // The title of this film
   episode_id: number; // The episode number of this film.
@@ -23,4 +14,3 @@ export interface IFilm {
   created: string; // the ISO 8601 date format of the time that this resource was created.
   edited: string; // the ISO 8601 date format of the time that this resource was edited.
 }
-
