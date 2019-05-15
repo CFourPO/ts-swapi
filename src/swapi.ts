@@ -14,6 +14,8 @@ const getResources = async (): Promise<IResourceSchema> => {
   }
 };
 
+// Films
+
 const getFilms = async (): Promise<IFilm[]> => {
   try {
     const response = await http<IFilm[]>('films');
@@ -32,6 +34,17 @@ const getFilmById = async (id: number): Promise<IFilm> => {
   }
 };
 
+const searchFilm = async (title: string): Promise<PaginatedData<IFilm>> => {
+  try {
+    const response = await http<PaginatedData<IFilm>>(`film?search=${title}`);
+    return await new PaginatedData<IFilm>(response.data);
+  } catch (error) {
+    throw error;
+  }
+};
+
+// People
+
 const getPeople = async (): Promise<PaginatedData<IPeople>> => {
   try {
     const response = await http<PaginatedData<IPeople>>(`people`);
@@ -43,7 +56,7 @@ const getPeople = async (): Promise<PaginatedData<IPeople>> => {
 
 const getPeopleById = async (id: number): Promise<IPeople> => {
   try {
-    const response = await http<IPeople>(`people`);
+    const response = await http<IPeople>(`people/${id}`);
     return await response.data;
   } catch (error) {
     throw error;
@@ -65,5 +78,6 @@ export const swapi = {
   getPeople,
   getPeopleById,
   getResources,
+  searchFilm,
   searchPeople,
 };
