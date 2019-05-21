@@ -1,7 +1,7 @@
-import { IPeople } from '..';
+import { People } from '..';
 import PaginatedData from '../paginatedData';
 
-const lukeSkywalker: IPeople = {
+const lukeSkywalker: People = {
   name: 'Luke Skywalker',
   height: '172',
   mass: '77',
@@ -25,7 +25,7 @@ const lukeSkywalker: IPeople = {
   edited: '2014-12-20T21:17:56.891000Z',
   url: 'https://swapi.co/api/people/1/',
 };
-const c3po: IPeople = {
+const c3po: People = {
   name: 'C-3PO',
   height: '167',
   mass: '75',
@@ -50,11 +50,11 @@ const c3po: IPeople = {
   edited: '2014-12-20T21:17:50.309000Z',
   url: 'https://swapi.co/api/people/2/',
 };
-const resultPages: IPeople[][] = [[lukeSkywalker], [c3po]];
+const resultPages: People[][] = [[lukeSkywalker], [c3po]];
 
 describe('PaginatedData', () => {
   test('constructor', () => {
-    const paginatedData = new PaginatedData<IPeople>({
+    const paginatedData = new PaginatedData<People>({
       count: 1,
       next: 'some url',
       previous: 'some url',
@@ -65,7 +65,7 @@ describe('PaginatedData', () => {
 
   describe('pageNumber', () => {
     test('should be set to 1 when previous is null', () => {
-      const paginatedData = new PaginatedData<IPeople>({
+      const paginatedData = new PaginatedData<People>({
         count: 1,
         next: null,
         previous: null,
@@ -75,7 +75,7 @@ describe('PaginatedData', () => {
     });
 
     test('should be set to 1 more than previous when previous is not null', () => {
-      const paginatedData = new PaginatedData<IPeople>({
+      const paginatedData = new PaginatedData<People>({
         count: 1,
         next: null,
         previous: 'https://swapi.co/people?page=3',

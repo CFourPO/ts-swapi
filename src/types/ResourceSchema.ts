@@ -1,4 +1,4 @@
-export interface IResourceSchema {
+export interface ResourceSchema {
   films: string;
   people: string;
   planets: string;

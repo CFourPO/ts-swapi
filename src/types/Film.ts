@@ -1,4 +1,4 @@
-export interface IFilm {
+export interface Film {
   title: string; // The title of this film
   episode_id: number; // The episode number of this film.
   opening_crawl: string; // The opening paragraphs at the beginning of this film.

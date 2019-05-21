@@ -1,5 +1,5 @@
 import { http } from './api';
-import { IPaginatedResponse } from './types/IPaginatedResponse';
+import { PaginatedResponse } from './types/PaginatedResponse';
 
 export default class PaginatedData<T> {
   public next: string | null;
@@ -8,7 +8,7 @@ export default class PaginatedData<T> {
   public results: T[];
   private pageNumber: number;
 
-  constructor({ next, previous, count, results }: IPaginatedResponse<T>) {
+  constructor({ next, previous, count, results }: PaginatedResponse<T>) {
     this.next = next;
     this.previous = previous;
     this.count = count;

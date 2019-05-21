@@ -1,5 +1,5 @@
 import * as api from '../api';
-import { IPeople, PaginatedData, swapi } from '../index';
+import {Swapi} from '../swapi';
 
 let spy: jest.SpyInstance;
 
@@ -10,23 +10,30 @@ describe('Swapi Api', () => {
     spy.mockResolvedValue({ data: 'some data' });
   });
   test('getResources', done => {
-    swapi.getResources().then(data => {
+    Swapi.people.fetch().then(() => {
       expect(spy).toHaveBeenCalled();
       done();
     });
   });
 
   test('getFilms', done => {
-    swapi.getFilms().then(data => {
+    Swapi.films.fetch().then(() => {
       expect(spy).toHaveBeenCalledWith('films');
       done();
     });
   });
 
   test('searchPeople', done => {
-    swapi.searchPeople('some name').then(data => {
+    Swapi.people.fetch().then(() => {
       expect(spy).toHaveBeenCalledWith('people?search=some name');
       done();
     });
   });
+
+  test('Swapi', (done) => {
+    Swapi.people.fetch(1).then((data) => {
+      expect(data).toBe('some data');
+      done();
+    })
+  })
 });
