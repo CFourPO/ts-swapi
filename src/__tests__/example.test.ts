@@ -23,16 +23,16 @@ describe('Swapi Api', () => {
     });
   });
 
-  test('searchPeople', done => {
+  test('fetch people', done => {
     Swapi.people.fetch().then(() => {
-      expect(spy).toHaveBeenCalledWith('people?search=some name');
+      expect(spy).toHaveBeenCalledWith('people');
       done();
     });
   });
 
-  test('Swapi', (done) => {
+  test('fetch people by id', (done) => {
     Swapi.people.fetch(1).then((data) => {
-      expect(data).toBe('some data');
+      expect(spy).toHaveBeenCalledWith('people/1');
       done();
     })
   })

@@ -1,5 +1,5 @@
-import { People } from '..';
 import PaginatedData from '../paginatedData';
+import { People } from '../types/People';
 
 const lukeSkywalker: People = {
   name: 'Luke Skywalker',
