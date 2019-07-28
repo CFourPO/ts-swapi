@@ -1,29 +1,8 @@
 import { http } from './api';
 import PaginatedData from './paginatedData';
-import { Film } from './types/Film';
-import { People } from './types/People';
-import { Planet } from './types/Planet';
-import { Species } from './types/Species';
-import { Starship } from './types/Starship';
-import { Vehicle } from './types/Vehicle';
+import { Film, People, Planet, Species, Starship, Vehicle } from './types';
 
-const getResource = async <T>(resource: string, id?: number): Promise<T> => {
-  try {
-    const response = await http<T>(id ? `${resource}/${id}` : `${resource}`);
-    return await response.data;
-  } catch (error) {
-    throw error;
-  }
-};
-
-const searchResource = async <T>(resource: string, searchTerm: string): Promise<PaginatedData<T>> => {
-  try {
-    const response = await http<PaginatedData<T>>(`${resource}?search=${searchTerm}`);
-    return await new PaginatedData<T>(response.data);
-  } catch (error) {
-    throw error;
-  }
-};
+import { getResource, searchResource } from './utils/helpers';
 
 export const Swapi = {
   films: {
