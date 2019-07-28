@@ -1,5 +1,5 @@
 import * as api from '../api';
-import {Swapi} from '../swapi';
+import { Swapi } from '../swapi';
 
 let spy: jest.SpyInstance;
 
@@ -30,10 +30,10 @@ describe('Swapi Api', () => {
     });
   });
 
-  test('fetch people by id', (done) => {
-    Swapi.people.fetch(1).then((data) => {
+  test('fetch people by id', done => {
+    Swapi.people.fetch(1).then(data => {
       expect(spy).toHaveBeenCalledWith('people/1');
       done();
-    })
-  })
+    });
+  });
 });
