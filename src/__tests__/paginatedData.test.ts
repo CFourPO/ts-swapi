@@ -2,8 +2,8 @@ import PaginatedData from '../paginatedData';
 import { People } from '../types/People';
 
 const lukeSkywalker: People = {
-  name: 'Luke Skywalker', 
-  height: '172', 
+  name: 'Luke Skywalker',
+  height: '172',
   mass: '77',
   hair_color: 'blond',
   skin_color: 'fair',
