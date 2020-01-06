@@ -2,10 +2,11 @@ import { http } from '../api';
 
 import PaginatedData from '../paginatedData';
 
-export const getResource = async <T>(resource: string, id?: number): Promise<T> => {
+export const getResource = async <T>(resource: string, id?: number): Promise<PaginatedData<T>> => {
+  const queryParams = id ? `/${id}` : '';
   try {
-    const response = await http<T>(id ? `${resource}/${id}` : `${resource}`);
-    return await response.data;
+    const response = await http<PaginatedData<T>>(resource + queryParams);
+    return await new PaginatedData<T>(response.data);
   } catch (error) {
     throw error;
   }

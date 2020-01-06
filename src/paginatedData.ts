@@ -1,5 +1,6 @@
 import { http } from './api';
 import { PaginatedResponse } from './types/PaginatedResponse';
+import { isTSUndefinedKeyword } from '@babel/types';
 
 export default class PaginatedData<T> {
   public next: string | null;
@@ -16,9 +17,9 @@ export default class PaginatedData<T> {
     this.pageNumber = this.getCurrentPage();
   }
 
-  public async getNext(): Promise<PaginatedData<T>> {
+  public async getNext(): Promise<PaginatedData<T> | undefined> {
     if (!this.next) {
-      return this;
+      return undefined;
     } else {
       try {
         const response = await http<PaginatedData<T>>(this.next, { prefixBaseUrl: false });

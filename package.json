@@ -2,8 +2,8 @@
   "name": "ts-swapi",
   "version": "1.4.0",
   "description": "TypeScript wrapper library for the Starwars API (SWAPI)",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/swapi.js",
+  "types": "dist/swapi.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest --config jestconfig.json",
