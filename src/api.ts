@@ -1,4 +1,4 @@
-const baseUrl = 'https://swapi.co/api/';
+const baseUrl = 'https://swapi.dev/api/';
 
 export const http = async <T>(
   url?: string,
